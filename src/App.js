@@ -7,11 +7,9 @@ function App() {
   return (
     <div className="App">
         <Header />
-        {/*Sidebar*/}
         <div className="app__body">
             <Sidebar />
         </div>
-        {/*Chat*/}
     </div>
   );
 }
