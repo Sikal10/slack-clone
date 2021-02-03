@@ -14,8 +14,13 @@ import SidebarOptions from "./SidebarOptions/SidebarOptions";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import {db} from "../../firebase";
+import {useSelector} from "react-redux";
+import {selectUser} from "../../features/userSlice";
 
 const Sidebar = () => {
+
+    const user = useSelector(selectUser);
+    const {uid, photo, displayName, email} = user;
     const [channels, setChannels]  = useState([]);
 
     useEffect(() => {
@@ -33,8 +38,8 @@ const Sidebar = () => {
         <div className={"sidebar"}>
             <div className="sidebar__header">
                 <div className="sidebar__info">
-                    <h2>Sikal Sikal</h2>
-                    <h3><FiberManualRecordIcon className={"sidebar__icon"} /> Sikal</h3>
+                    <h2>{displayName}</h2>
+                    <h3><FiberManualRecordIcon className={"sidebar__icon"} /> {displayName.split(" ")[0]}</h3>
                 </div>
                 <CreateIcon />
             </div>
